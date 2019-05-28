@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Gallery{% endblock %}</title>
+
+</head>
+<body>
+
+<p>please click on each picture to view details</p>
+<br/>
+{#<img src="{{ staff.staff_picture.url }}" width="200px" height="200px" style="border-radius: 30px" alt="No image"> <br>#}
+   {# <i> Surname:</i><i>{{staff.surname}}</i> <br>#}
+   {#<i>Name: </i>  <i>{{staff.name}}</i><br>#}
+   {# <i> Age: </i> <i>{{staff.age}}</i><br>#}
+   {# <h6>{% endfor %}</h6>#}
+
+<div class="card" style="width: 18rem; height: auto;">
+    <i>{% for staff in Staff_list %}</i>
+    <img class="card-image-top" src="{{ staff.staff_picture.url }}" alt="card image cap" height="200px">
+    <div class="card-body">
+        <h5 class="card-title">{{staff.staff_post}}</h5>
+        <p class="card-text">some quick example texts to build on the card title and make up the bulk of the card content</p>
+    <a href="{% url 'about' %}" class="btn btn-primary">About me</a>
+    </div>
+    <h6>{% endfor %}</h6>
+</div>
+{#<div class="card" style="width: 18rem;">#}
+{#    <img class="card-image-top" src="{% static '/uploaded_images/../static/css/s2.jpg' %}" alt="card image cap" height="200px">#}
+{#    <div class="card-body">#}
+{#        <h5 class="card-title">Victor Nwachukwu</h5>#}
+{#        <p class="card-text">some quick example texts to build on the card title and make up the bulk of the card content</p>#}
+{#    <a href="{% url 'about' %}" class="btn btn-primary">About me</a>#}
+{#    </div>#}
+{#</div>#}
+{#<div class="card" style="width: 18rem;">#}
+{#    <img class="card-image-top" src="{% static '/uploaded_images/../static/css/s3.jpg' %}" alt="card image cap" height="200px">#}
+{#    <div class="card-body">#}
+{#        <h5 class="card-title">Elvis Nwankwo</h5>#}
+{#        <p class="card-text">some quick example texts to build on the card title and make up the bulk of the card content</p>#}
+{#    <a href="{% url 'about' %}" class="btn btn-primary">About me</a>#}
+{#    </div>#}
+</body>
+</html>
+{% endblock %}
